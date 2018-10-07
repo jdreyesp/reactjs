@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css'; //WebPack to this magic
 import Person from './Person/Person';
-import Radium from 'radium' //npm install --save radium
+import Radium, {StyleRoot} from 'radium' //npm install --save radium
 
 class App extends Component {
   
@@ -106,19 +106,19 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <h1>Hi, I'm a React app</h1>
-        <p className={classes.join(' ')}>This is really working!</p>
-        <button 
-          style={style}
-          //onClick={() => this.switchNameHandler('Maximilian!!')}>
-          onClick={this.togglePersonsHandler}>
-          Toggle Persons
-        </button>
-        
-       {persons} 
-      
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1>Hi, I'm a React app</h1>
+          <p className={classes.join(' ')}>This is really working!</p>
+          <button 
+            style={style}
+            //onClick={() => this.switchNameHandler('Maximilian!!')}>
+            onClick={this.togglePersonsHandler}>
+            Toggle Persons
+          </button>
+        {persons} 
+        </div>
+      </StyleRoot>
     );
   }
 }
