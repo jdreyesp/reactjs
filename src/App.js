@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'; //WebPack to this magic
 import Person from './Person/Person';
-import Radium from 'radium' //npm install --save radium
 
 class App extends Component {
   
@@ -65,11 +64,7 @@ class App extends Component {
       font: 'inherit',
       border: '1x solid blue',
       padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor : 'lightgreen',
-        color: 'black'
-      }
+      cursor: 'pointer'
     };
 
     let persons = null;
@@ -89,10 +84,6 @@ class App extends Component {
         );
 
         style.backgroundColor = 'red';
-        style[':hover'] = {
-          backgroundColor: 'salmon',
-          color: 'black'
-        }
     }
 
     //Join elems into one string, separated by ' '
@@ -115,12 +106,10 @@ class App extends Component {
           onClick={this.togglePersonsHandler}>
           Toggle Persons
         </button>
-        
        {persons} 
-      
       </div>
     );
   }
 }
 
-export default Radium(App);
+export default App;
