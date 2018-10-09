@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css'; //WebPack to this magic
 import Person from './Person/Person';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
   
@@ -65,12 +66,13 @@ class App extends Component {
         persons = (
           <div>
           {this.state.persons.map((person, index) => { //Use map to iterate
-            return <Person 
+            return <ErrorBoundary key={person.id}>
+                    <Person 
                       click={this.deletePersonHandler}
                       name={person.name} 
                       age={person.age}
-                      key={person.id}
                       changed={(event) => this.nameChangedHandler(event, person.id)}/>
+                      </ErrorBoundary>
           })}
         </div>
         );
